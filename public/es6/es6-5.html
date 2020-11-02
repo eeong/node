@@ -1,0 +1,53 @@
+<script>
+/**es6 iteration Set(),Map()****************/
+const arr = [1,2,3,4,5];
+for (let v of arr){
+console.log(v);
+}
+
+const obj = {
+	a: 'A',
+	b: 'B',
+	c: 'C',
+	fn: function(){
+
+	}
+}
+
+for(var i in obj){
+console.log(obj[i]);
+}
+
+for(var v of arr){
+console.log(v);
+}
+
+console.clear();
+
+const set = new Set();
+set.add("A");
+set.add("B");
+set.add("A");
+set.add(function(){});
+console.log(set);
+
+const lotto = new Set();
+for(var i=0; lotto.size<6; i++){
+	lotto.add(Math.ceil(Math.random()*45));
+}
+console.log(lotto);
+
+for(var [i,k] of lotto.entries()){
+	console.log(i,k);
+}
+
+var human = new Map();
+human.set('name','홍길동');
+human.set('age','22');
+for(var [i,k] of human.entries()){
+	console.log(i,k)
+}
+//es5의 iteration - for, for in, forEach(), filter(), map(), each()-jquery
+
+
+</script>
