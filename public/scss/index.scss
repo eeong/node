@@ -14,7 +14,10 @@
 }
 
 html,body {
-	color: color.$defaultColor;
+	color: darken(color.$defaultColor, 40%);
+}
+small {
+	color: color.$secondColor;
 }
 .act {
 	color: color.$accentColor;
