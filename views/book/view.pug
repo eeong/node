@@ -14,14 +14,14 @@ html(lang="ko")
 					small.pl-3= title.small
 			.view-wrapper
 				.img-wrap
-					img.w-100(src=`/img/byul.jpg`)
+					img.w-100(src= book.src)
 				ul.content-wrap
 					li.list
 						.title 제목
-						.content 별주부뎐
+						.content= book.title 
 					li.list
 						.title 저자 
-						.content 작자미상
-				.detail-wrap 은닉 집단의 사기 행각과 장기매매 실태
+						.content= book.writer
+				.detail-wrap= book.content
 			.bt-wrapper.py-3.text-center
-				button.btn.btn-primary list
+				button.btn.btn-primary(onclick="location.href='/list") list

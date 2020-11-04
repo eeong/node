@@ -1,29 +1,27 @@
-/** 전역설정 *******************************/
-const express = require('express');
+const express = require("express");
 const app = express();
-const path = require('path');
-
+const path = require("path");
 const books = [
 	{id:1, title: '별주부전', writer: '작자미상', content:"불법 장기매매", src:'/img/byul.jpg'},
 	{id:2, title: '심청전', writer: '작자미상', content:"인신매매, 사기", src:'/img/sim.jpg'},
 	{id:3, title: '춘향전', writer: '작자미상', content:"공권력 남용", src:'/img/chun.jpg'},
 ];
 
-/** 서버구동 *******************************/
+// server 
+
 app.listen(3000, () => {
-	console.log("=====================");
-	console.log("http://127.0.0.1:3000");
-	console.log("=====================");
-});
+	console.log("Server listen 127.0.0.1:3000");
+})
 
-/** 설정 *******************************/
-app.set('view engine', 'pug');
+// set
+app.set('view engine','pug');
 app.set('views','./views');
-app.locals.pretty = true;
 
-/** 라우터 *******************************/
-app.use('/', express.static(path.join(__dirname, './public')));
 
+//middle
+app.use('/', express.static(path.join(__dirname ,'./public')));
+
+//router
 app.get('/list',(req, res) => {
 	const pug = {
 		title : {
@@ -35,14 +33,16 @@ app.get('/list',(req, res) => {
 			...books
 		]
 	};
+
 	res.render('book/list', pug);
-}); 
+});
 
 app.get('/book/:id',(req, res) => {
 	const book = books.filter(v => v.id == req.params.id);
+	console.log(book);
 	const pug = {
 		title : {
-			head : '도서 상세보기',
+			head : '상세보기',
 			body : book[0].title,
 			small : book[0].writer
 		},
@@ -50,7 +50,7 @@ app.get('/book/:id',(req, res) => {
 			...books
 		],
 		book: book[0]
-
 	};
+
 	res.render('book/view', pug);
-}); 
+})

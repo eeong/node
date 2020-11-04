@@ -36,7 +36,8 @@ small, a, a:hover {
 }
 
 .view-wrapper {
-  margin: 2rem;
+  font-size: 1.25em;
+  margin: 2rem auto;
   border: 1px solid #ccc;
 }
 .view-wrapper .img-wrap {

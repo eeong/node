@@ -1,11 +1,10 @@
 "use strict";
 
-/** 전역설정 *******************************/
-var express = require('express');
+var express = require("express");
 
 var app = express();
 
-var path = require('path');
+var path = require("path");
 
 var books = [{
   id: 1,
@@ -25,22 +24,17 @@ var books = [{
   writer: '작자미상',
   content: "공권력 남용",
   src: '/img/chun.jpg'
-}];
-/** 서버구동 *******************************/
+}]; // server 
 
 app.listen(3000, function () {
-  console.log("=====================");
-  console.log("http://127.0.0.1:3000");
-  console.log("=====================");
-});
-/** 설정 *******************************/
+  console.log("Server listen 127.0.0.1:3000");
+}); // set
 
 app.set('view engine', 'pug');
-app.set('views', './views');
-app.locals.pretty = true;
-/** 라우터 *******************************/
+app.set('views', './views'); //middle
 
-app.use('/', express["static"](path.join(__dirname, './public')));
+app.use('/', express["static"](path.join(__dirname, './public'))); //router
+
 app.get('/list', function (req, res) {
   var pug = {
     title: {
@@ -56,9 +50,10 @@ app.get('/book/:id', function (req, res) {
   var book = books.filter(function (v) {
     return v.id == req.params.id;
   });
+  console.log(book);
   var pug = {
     title: {
-      head: '도서 상세보기',
+      head: '상세보기',
       body: book[0].title,
       small: book[0].writer
     },
