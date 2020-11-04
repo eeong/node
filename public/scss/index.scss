@@ -1,9 +1,11 @@
 @use 'color';
+@use 'dim';
 
 @mixin flex($hori, $vert) {
 	display: flex;
 	justify-content: $hori;
 	align-items: $vert;
+	flex-wrap: wrap;
 }
 
 %defFlex {
@@ -22,6 +24,12 @@ small {
 .act {
 	color: color.$accentColor;
 }
+a {
+	@extend small;
+	&:hover {
+		@extend a;
+	 }
+}
 
 .slide-wrapper {
 	.stage {
@@ -36,10 +44,42 @@ small {
 	}
 }
 
-.flex-wrap {
-	@include flex(center, flex-start);
+%flex-wrap {
+	@include flex(flex-start, flex-start);
 }
 
 .flex-wrap2 { 
 	@extend %defFlex;
+}
+
+.view-wrapper {
+	@extend %flex-wrap;
+	margin: dim.$sectionMargin;
+	border: color.$sectionBorder;
+	.img-wrap {
+		flex: 40% 0 0;
+		padding-right: 2rem;
+	}
+	.content-wrap {
+		flex: 55% 0 0;
+		.list {
+			display: flex;
+			border-bottom: color.$sectionBorder;
+		}
+		.title {
+			flex: 20% 0 0;
+			font-weight: bold;
+			padding: 1em;
+		}
+		.content {
+			flex: 80% 0 0;
+			padding: 1em;
+		}
+	}
+	.detail-wrap {
+		flex: 100% 0 0;
+		margin-top: 1rem;
+		padding: 2rem;
+		border-top: color.$sectionBorder;
+	}
 }

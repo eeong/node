@@ -1,0 +1,27 @@
+doctype html
+html(lang="ko")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		title= title.head
+		link(rel="stylesheet" href="/css/bootstrap.min.css")
+		link(rel="stylesheet" href="/css/index.css")
+	body
+		.wrapper.container
+			.title.jumbotron
+				h1= title.body
+					hr
+					small.pl-3= title.small
+			.view-wrapper
+				.img-wrap
+					img.w-100(src=`/img/byul.jpg`)
+				ul.content-wrap
+					li.list
+						.title 제목
+						.content 별주부뎐
+					li.list
+						.title 저자 
+						.content 작자미상
+				.detail-wrap 은닉 집단의 사기 행각과 장기매매 실태
+			.bt-wrapper.py-3.text-center
+				button.btn.btn-primary list

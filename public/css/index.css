@@ -9,6 +9,10 @@ html, body {
   color: #666666;
 }
 
+small, a, a:hover {
+  color: #666;
+}
+
 .act {
   color: #f50;
 }
@@ -24,8 +28,40 @@ html, body {
   flex: 25% 0 0;
 }
 
-.flex-wrap {
+.view-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.view-wrapper {
+  margin: 2rem;
+  border: 1px solid #ccc;
+}
+.view-wrapper .img-wrap {
+  flex: 40% 0 0;
+  padding-right: 2rem;
+}
+.view-wrapper .content-wrap {
+  flex: 55% 0 0;
+}
+.view-wrapper .content-wrap .list {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.view-wrapper .content-wrap .title {
+  flex: 20% 0 0;
+  font-weight: bold;
+  padding: 1em;
+}
+.view-wrapper .content-wrap .content {
+  flex: 80% 0 0;
+  padding: 1em;
+}
+.view-wrapper .detail-wrap {
+  flex: 100% 0 0;
+  margin-top: 1rem;
+  padding: 2rem;
+  border-top: 1px solid #ccc;
 }
