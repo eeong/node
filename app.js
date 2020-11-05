@@ -24,8 +24,27 @@ app.locals.pretty = true;
 /** 라우터 *******************************/
 app.use('/', express.static(path.join(__dirname, './public')));
 
-app.get('/list',(req, res) => {
+app.get('/book/create', (req, res) => {
 	const pug = {
+		css: 'index',
+		js: 'index',
+		title : {
+			head : '도서 리스트 생성',
+			body : '도서 목록 만들기',
+			small : '리스트 등록할 도서'
+		}
+	}
+	res.render('book/create', pug);
+});
+
+app.post('/book/save',(req, res) => {
+	console.log(req);
+});
+
+app.get(['/book', '/book/list'],(req, res) => {
+	const pug = {
+		css : 'index',
+		js : 'index',
 		title : {
 			head : '도서 리스트',
 			body : '도서 목록',
@@ -38,9 +57,11 @@ app.get('/list',(req, res) => {
 	res.render('book/list', pug);
 }); 
 
-app.get('/book/:id',(req, res) => {
+app.get('/book/view/:id',(req, res) => {
 	const book = books.filter(v => v.id == req.params.id);
 	const pug = {
+		css : 'index',
+		js : 'index',
 		title : {
 			head : '도서 상세보기',
 			body : book[0].title,
@@ -54,3 +75,12 @@ app.get('/book/:id',(req, res) => {
 	};
 	res.render('book/view', pug);
 }); 
+
+app.get('/test', ( req, res)=>{
+	const pug = [
+		css = 'default',
+		js = 'default',
+
+	]
+	res.render('test/list.pug', pug);
+});

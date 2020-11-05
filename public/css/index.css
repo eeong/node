@@ -1,3 +1,9 @@
+ol, ul, li, p, div, h1, h2, h3, h4, h5, h6, header, section, article, aside, footer {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .flex-wrap2 {
   display: flex;
   justify-content: center;
@@ -35,6 +41,28 @@ small, a, a:hover {
   flex-wrap: wrap;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #353535;
+  color: #f6f6f6;
+}
+.header .logo {
+  padding: 0.75em 1em;
+}
+.header .navi-wrap {
+  display: flex;
+}
+.header .navi-wrap .navi {
+  color: #f6f6f6;
+  padding: 0.75em 1em;
+}
+
+.titlebar {
+  margin: 1em auto;
+}
+
 .view-wrapper {
   font-size: 1.25em;
   margin: 2rem auto;
@@ -43,6 +71,9 @@ small, a, a:hover {
 .view-wrapper .img-wrap {
   flex: 40% 0 0;
   padding-right: 2rem;
+}
+.view-wrapper .img-wrap img {
+  width: 100%;
 }
 .view-wrapper .content-wrap {
   flex: 55% 0 0;
@@ -65,4 +96,22 @@ small, a, a:hover {
   margin-top: 1rem;
   padding: 2rem;
   border-top: 1px solid #ccc;
+}
+
+.send-wrapper .list {
+  display: flex;
+  padding: 0.5em 0;
+  margin: 0.5em 0;
+  border-bottom: 1px solid #dee2e6;
+}
+.send-wrapper .list .title {
+  flex: 18% 0 0;
+  margin-right: 2%;
+  padding: 1%;
+  font-weight: bold;
+  background-color: #eee;
+}
+.send-wrapper .list .content {
+  flex: 80% 0 0;
+  padding: 0.5em;
 }
